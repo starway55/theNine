@@ -3,7 +3,7 @@ var express = require("express"),
 bodyParser = require("body-parser"),
 logger = require('./src/logger/logger'),
 app = express(),
-port = 3070;
+port = 8080;
 
 app.use(bodyParser.json());
 
