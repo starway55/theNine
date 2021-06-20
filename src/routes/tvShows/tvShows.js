@@ -15,6 +15,7 @@ app.post("/filter", (req, res, next) => {
     logger.info("req.body")
     logger.info(req.body);
     const payload = req.body.payload;
+    logger.info("after payload");
   
     // const filteredShows = payload.filter(show => {
     //   return show.drm === true && show.episodeCount > 0

@@ -27,6 +27,20 @@ const handleNotFoundError = (req, res) => {
   })
 }
 
+const handleJsonParseError = (err, req, res, next) => {
+  // This check makes sure this is a JSON parsing issue, but it might be
+  // coming from any middleware, not just body-parser:
+
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+      console.error(err);
+      return res.status(400).send({
+        error: "Could not decode request: JSON parsing failed"
+      }); // Bad request
+  }
+
+  next();
+};
+
 const handleError = (err, req, res, next) => {
 
   logger.info("debug: inside error handler middleware");
@@ -52,6 +66,7 @@ const handleError = (err, req, res, next) => {
 }
 
 module.exports = {
+  handleJsonParseError,
   handleNotFoundError,
   handleError
 }

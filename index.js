@@ -4,8 +4,11 @@ bodyParser = require("body-parser"),
 logger = require('./src/logger/logger'),
 app = express(),
 port = 8080;
+const { handleJsonParseError } = require("./src/middleware/errorHandlingMiddleWare");
 
 app.use(bodyParser.json());
+
+
 
 app.get("/", function(req, res) {
     // logger.info("default route");
@@ -15,6 +18,7 @@ app.get("/", function(req, res) {
 })
 
 app.use("/api", require("./src/routes/routes"));
+app.use(handleJsonParseError);
 
 // request to handle undefined or all other routes
 // app.get("*", function(req, res) {
