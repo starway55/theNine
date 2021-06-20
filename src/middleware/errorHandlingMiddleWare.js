@@ -30,7 +30,7 @@ const handleNotFoundError = (req, res) => {
 const handleError = (err, req, res, next) => {
 
   if(err.type === "jsonParsingError"){
-    logger.error(`Error when parsing json: ${JSON.stringify(err)}`);
+    logger.error(`Error when parsing json: ${err}`);
     return res.status(400).send({
       error: "Could not decode request: JSON parsing failed"
     })
