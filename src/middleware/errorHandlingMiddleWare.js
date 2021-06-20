@@ -22,12 +22,16 @@ const logger = require('../logger/logger');
 const handleNotFoundError = (req, res) => {
 
   logger.error("cannot find API endpoint");
-  res.status(404).send({
+  return res.status(404).send({
     error: "Cannot find API endpoint"
   })
 }
 
 const handleError = (err, req, res, next) => {
+
+  logger.info("debug: inside error handler middleware");
+  logger.info("req.body");
+  logger.info(req.body);
 
   if(err.type === "jsonParsingError"){
     logger.error(`Error when parsing json: ${err}`);
