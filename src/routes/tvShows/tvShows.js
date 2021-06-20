@@ -12,6 +12,8 @@ app.post("/filter", (req, res, next) => {
     // const body = req.body;
     console.log("originalurl");
     console.log(req.originalUrl)
+    logger.info("req.body")
+    logger.info(req.body);
     const payload = req.body.payload;
   
     // const filteredShows = payload.filter(show => {
