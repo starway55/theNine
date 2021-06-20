@@ -10,7 +10,11 @@ app.post("/filter", (req, res, next) => {
     logger.info("inside filter endpoint");
     // console.log(req.body);
     // const body = req.body;
-    const payload = req.body.payload;
+    console.log("originalurl");
+    console.log(req.originalUrl);
+    console.log("req.body");
+    console.log(req.body);
+    const payload = req.body;
   
     // const filteredShows = payload.filter(show => {
     //   return show.drm === true && show.episodeCount > 0
