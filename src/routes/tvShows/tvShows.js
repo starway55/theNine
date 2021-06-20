@@ -36,6 +36,9 @@ app.post("/filter", (req, res, next) => {
       response: filteredResults
     });
   } catch (err){
+    logger.info("req.body")
+    logger.info(req.body);
+    logger.info("error caught");
     err.type = "jsonParsingError"
     next(err);
   }
