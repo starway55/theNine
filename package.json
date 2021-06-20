@@ -1,0 +1,29 @@
+{
+  "name": "theninginterviewyun",
+  "version": "1.0.0",
+  "description": "Yun Zhao's coding challenge for Channel9",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "test",
+    "start:dev": "nodemon index.js",
+    "build": "webpack"
+  },
+  "author": "Yun Zhao",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "webpack": "^5.39.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@src": "src"
+  }
+}
