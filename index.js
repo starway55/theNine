@@ -1,23 +1,22 @@
-require('module-alias/register')
-var express = require("express"),
-bodyParser = require("body-parser"),
-logger = require('./src/logger/logger'),
-app = express(),
-port = 8080;
-const { handleJsonParseError } = require("./src/middleware/errorHandlingMiddleWare");
+require('module-alias/register');
+const express = require("express");
+const bodyParser = require("body-parser");
+const logger = require('@src/logger/logger');
+const app = express();
+const port = 8080;
+const routes = require("@src/routes/routes");
+const { handleJsonParseError } = require("@src/middleware/errorHandlingMiddleWare");
 
 app.use(bodyParser.json());
 
-
-
 app.get("/", function(req, res) {
-    // logger.info("default route");
-    res.send({
-      error: "The default route is hit. It is not supported"
-    });
+  // logger.info("default route");
+  res.status(400).send({
+    error: "The default route is hit. It is not supported"
+  });
 })
 
-app.use("/api", require("./src/routes/routes"));
+app.use("/api", routes);
 app.use(handleJsonParseError);
 
 // request to handle undefined or all other routes

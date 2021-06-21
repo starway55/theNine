@@ -1,10 +1,11 @@
 var express = require("express");
-const { handleNotFoundError, handleError } = require('../middleware/errorHandlingMiddleWare');
+const { handleNotFoundError, handleFilterError } = require('@src/middleware/errorHandlingMiddleWare');
+const tvShows = require("@routes/tvShows/tvShows.js")
 apiRouter = express();
 
-apiRouter.use("/tvShow", require('./tvShows/tvShows'));
+apiRouter.use("/tvShow", tvShows);
 apiRouter.post('*', handleNotFoundError);
 apiRouter.get('*', handleNotFoundError);
-apiRouter.use(handleError);
+apiRouter.use(handleFilterError);
 
 module.exports = apiRouter;

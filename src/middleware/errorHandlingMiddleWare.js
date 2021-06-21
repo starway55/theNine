@@ -1,4 +1,4 @@
-const logger = require('../logger/logger');
+const logger = require('@src/logger/logger');
 
 const handleNotFoundError = (req, res) => {
 

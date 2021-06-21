@@ -1,5 +1,5 @@
 var express = require("express");
-const logger = require("../../logger/logger");
+const logger = require("@src/logger/logger");
 app = express();
 
 app.post("/filter", (req, res, next) => {
@@ -9,7 +9,6 @@ app.post("/filter", (req, res, next) => {
 
     const payload = req.body.payload;
 
-  
     const filteredResults = [];
     payload.map(element => {
       if(element.drm === true && element.episodeCount > 0){
