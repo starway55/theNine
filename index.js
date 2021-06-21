@@ -10,9 +10,10 @@ const { handleJsonParseError } = require("@src/middleware/errorHandlingMiddleWar
 
 app.use(bodyParser.json());
 
+// Sending status 200 to default route to pass AWS health check.
 app.get("/", function(req, res) {
-  res.status(400).send({
-    error: "The default route is hit. It is not supported"
+  res.status(200).send({
+    info: "This is the default route. Server is healthy"
   });
 })
 
