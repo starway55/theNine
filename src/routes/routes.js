@@ -1,9 +1,9 @@
 var express = require("express");
 const { handleNotFoundError, handleFilterError } = require('@src/middleware/errorHandlingMiddleWare');
-const tvShows = require("@routes/tvShows/tvShows.js")
+const tvShowsController = require("@routes/tvShows/tvShowsController.js")
 apiRouter = express();
 
-apiRouter.use("/tvShow", tvShows);
+apiRouter.use("/tvShow", tvShowsController);
 apiRouter.post('*', handleNotFoundError);
 apiRouter.get('*', handleNotFoundError);
 apiRouter.use(handleFilterError);
